@@ -1,0 +1,46 @@
+{{set . "title" "Order Taking"}}
+{{template "header.html" .}}
+
+<h2 class="mb-4">Order Taking</h2>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card bg-secondary text-light mb-4">
+      <div class="card-body">
+        <h5 class="card-title">New Order</h5>
+        <form id="newOrderForm">
+          <div class="form-group">
+            <label for="tableNumber">Table Number</label>
+            <input type="number" class="form-control" id="tableNumber" required>
+          </div>
+          <div class="form-group">
+            <label for="menuItems">Menu Items</label>
+            <select multiple class="form-control" id="menuItems" required>
+              <!-- Populate this with actual menu items from the database -->
+              <option value="1">Item 1</option>
+              <option value="2">Item 2</option>
+              <option value="3">Item 3</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Create Order</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card bg-secondary text-light mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Active Orders</h5>
+        <ul id="activeOrders" class="list-group list-group-flush">
+          <!-- This will be populated dynamically with JavaScript -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Add JavaScript for form submission and order management here
+</script>
+
+{{template "footer.html" .}}

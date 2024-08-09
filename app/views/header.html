@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{.title}} - DineFlow Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/dineflow-pro.css">
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/js/dineflow-pro.js"></script>
+    {{range .moreStyles}}
+      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+    {{end}}
+  </head>
+  <body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">DineFlow Pro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/order">Order Taking</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pos">POS</a></li>
+            <li class="nav-item"><a class="nav-link" href="/delivery">Delivery Console</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4">

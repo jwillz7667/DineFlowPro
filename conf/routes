@@ -1,0 +1,79 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+module:static
+
+# App controller
+GET     /                                       App.Index
+GET     /dashboard                              App.Dashboard
+GET     /testdb                                 App.TestDB
+
+# API Endpoints
+# Menu Items
+GET     /api/menu                               App.GetMenuItems
+GET     /api/menu/:id                           App.GetMenuItem
+POST    /api/menu                               App.CreateMenuItem
+PUT     /api/menu/:id                           App.UpdateMenuItem
+DELETE  /api/menu/:id                           App.DeleteMenuItem
+
+# Orders
+GET     /api/orders                             App.GetOrders
+GET     /api/orders/:id                         App.GetOrder
+POST    /api/orders                             App.CreateOrder
+PUT     /api/orders/:id                         App.UpdateOrder
+DELETE  /api/orders/:id                         App.DeleteOrder
+
+# Users
+GET     /api/users                              App.GetUsers
+GET     /api/users/:id                          App.GetUser
+POST    /api/users                              App.CreateUser
+PUT     /api/users/:id                          App.UpdateUser
+DELETE  /api/users/:id                          App.DeleteUser
+
+# Order Taking controller
+GET     /order                                  OrderTaking.Index
+POST    /order                                  OrderTaking.CreateOrder
+PUT     /order/:id                              OrderTaking.UpdateOrder
+GET     /order/:id                              OrderTaking.GetOrder
+
+# POS controller
+GET     /pos                                    POS.Index
+POST    /pos/payment                            POS.ProcessPayment
+GET     /pos/receipt/:orderId                   POS.GenerateReceipt
+
+# Delivery Console controller
+GET     /delivery                               DeliveryConsole.Index
+POST    /delivery/assign                        DeliveryConsole.AssignDriver
+PUT     /delivery/:deliveryId/status            DeliveryConsole.UpdateDeliveryStatus
+GET     /delivery/:deliveryId                   DeliveryConsole.GetDeliveryDetails
+
+# Authentication routes
+GET     /login                                  Auth.Login
+POST    /login                                  Auth.Authenticate
+GET     /logout                                 Auth.Logout
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# Serve JavaScript files
+GET     /js/*filepath                           Static.Serve("public/js")
+
+# Serve CSS files
+GET     /css/*filepath                          Static.Serve("public/css")
+
+# Serve image files
+GET     /img/*filepath                          Static.Serve("public/img")
+
+# Catch all, this will route any request into the controller path
+#
+#                    **** WARNING ****
+# Enabling this exposes any controller and function to the web.
+# ** This is a serious security issue if used online **
+#
+# For rapid development uncomment the following to add new controller.action endpoints
+# without having to add them to the routes table.
+# *       /:controller/:action                    :controller.:action

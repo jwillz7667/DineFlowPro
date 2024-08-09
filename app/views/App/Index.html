@@ -1,0 +1,56 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+{{if .user}}
+  <div class="text-right mb-3">
+    Welcome, {{.user.FirstName}}! 
+    <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+  </div>
+{{else}}
+  <div class="text-right mb-3">
+    <a href="/login" class="btn btn-outline-light btn-sm">Login</a>
+  </div>
+{{end}}
+
+<header class="jumbotron bg-primary text-light" id="overview">
+  <div class="container">
+    <h1 class="display-4">Welcome to DineFlow Pro</h1>
+    <p class="lead">
+      Your all-in-one restaurant management solution.
+    </p>
+  </div>
+</header>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card bg-secondary text-light mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Order Taking</h5>
+        <p class="card-text">Efficiently manage customer orders with our intuitive interface.</p>
+        <a href="/order" class="btn btn-primary">Go to Order Taking</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card bg-secondary text-light mb-4">
+      <div class="card-body">
+        <h5 class="card-title">POS System</h5>
+        <p class="card-text">Process payments and manage transactions with ease.</p>
+        <a href="/pos" class="btn btn-primary">Go to POS</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card bg-secondary text-light mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Delivery Console</h5>
+        <p class="card-text">Track and manage deliveries in real-time.</p>
+        <a href="/delivery" class="btn btn-primary">Go to Delivery Console</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{template "flash.html" .}}
+
+{{template "footer.html" .}}
